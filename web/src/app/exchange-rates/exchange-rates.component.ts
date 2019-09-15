@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
   templateUrl: './exchange-rates.component.html',
   styleUrls: ['./exchange-rates.component.scss']
 })
-export class ExchangeRates implements OnInit {
+export class ExchangeRatesComponent implements OnInit {
   rates: any[];
   loading = true;
   error: any;
@@ -26,7 +26,7 @@ export class ExchangeRates implements OnInit {
           }
         `,
       })
-      .valueChanges.subscribe(result => {
+      .valueChanges.subscribe((result: any) => {
       this.rates = result.data && result.data.rates;
       this.loading = result.loading;
       this.error = result.error;
